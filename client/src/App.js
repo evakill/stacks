@@ -3,7 +3,7 @@ import './App.css'
 import { Card, Table } from 'react-casino'
 
 const io = require('socket.io-client')
-const socket = io(process.env.PORT)
+const socket = io()
 
 const smallCard = { height: 120, width: 'auto' }
 const handCard = { height: 140, width: 'auto'}
@@ -50,6 +50,7 @@ function App() {
     const magic = ['2', '7', '8', 'T']
 
     function getValue(card) {
+        console.log('v', card)
         const { face } = card
         let value = Number(face)
         if (face === 'J') {
@@ -98,7 +99,7 @@ function App() {
             update()
             if (game.ups[player].length === 3) {
                 game.turn = (player === 'A' ? 'B' : 'A')
-                game.stage[player] = 3
+                game.stage[player] = 2
                 socket.emit('end-turn', game)
             }
             return
@@ -108,11 +109,14 @@ function App() {
                 if (c.face === card.face) {
                     if (c.suit === card.suit) {
                         game.stack.unshift(card)
+                        console.log(1)
                         return false
                     }
                     const result = window.confirm(`Play your ${c.face} of ${c.suit}?`)
                     if (result) {
                         game.stack.unshift(c)
+                        console.log(2)
+
                         return false
                     }
                     return true
@@ -137,6 +141,7 @@ function App() {
             setGame(game)
             update()
             socket.emit('end-turn', game)
+            return
         }
         if (game.stage[player] === 3 && verifyPlay(card, game.stack[0])) {
             game.ups[player] = game.ups[player].filter(c => {
@@ -166,6 +171,7 @@ function App() {
             setGame(game)
             update()
             socket.emit('end-turn', game)
+            return
         }
         if (game.stage[player] === 4) {
             game.downs[player] = game.downs[player].filter(c => !(c.face === card.face && c.suit === card.suit))

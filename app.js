@@ -14,6 +14,7 @@ mongoose.connection.on('connected', () => {
 })
 
 app.use(express.static(path.join(__dirname, 'client/build')))
+app.use('/:id', express.static(path.join(__dirname, 'client/build')))
 
 function shuffle(deck) {
     for (let i in deck) {
