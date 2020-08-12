@@ -3,15 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^5.9.28",
-    "nodemon": "^2.0.4",
-    "socket.io": "^2.3.0"
+    "react": "^16.13.1",
+    "react-casino": "^0.2.6",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "socket.io-client": "^2.3.0"
   },
   "scripts": {
-    "start": "node app.js",
-    "heroku-postbuild": "cd client && yarn && yarn run build"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:4001",
   "eslintConfig": {
     "extends": "react-app"
   },

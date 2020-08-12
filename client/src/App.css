@@ -1,0 +1,84 @@
+.App {
+  text-align: center;
+}
+
+.info-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
+    width: 100vw;
+    color: dark-gray;
+    font-weight: bold;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 100;
+    font-size: 12px;
+    height: 15px;
+}
+
+.start-button {
+    height: 50px;
+    width: 200px;
+    font-size: 28px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px black;
+    border: none;
+}
+
+.deck {
+    position: absolute;
+    left: 30%;
+    top: 23%;
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+}
+
+.hand {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    padding-right: 20px;
+    z-index: 100;
+    max-height: 150px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.upA {
+    position: absolute;
+    bottom: 260px;
+    left: 110px;
+}
+
+.downA {
+    position: absolute;
+    bottom: 250px;
+    left: 100px;
+}
+
+.upA3 {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+}
+
+.downA3 {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+}
+
+
+.upB {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+}
+
+.downB {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+}
